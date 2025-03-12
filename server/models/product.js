@@ -1,16 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
     const Product = sequelize.define('Product', {
         id: {type: DataTypes.INTEGER, primaryKey: true},
-        description: { type: DataTypes.VARCHAR },
+        description: { type: DataTypes.STRING },
         price: { type: DataTypes.DOUBLE, allowNull: false },
-        created_at: {type: DataTypes.DATETIME},
-        updated_at: {type: DataTypes.DATETIME},
-        imageUrl: { type: DataTypes.VARCHAR}
+        created_at: {type: DataTypes.DATE},
+        updated_at: {type: DataTypes.DATE},
+        imageUrl: { type: DataTypes.STRING}
     });
 
-    Product.associate = (models) => {
-        Product.belongsToMany(models.Category, { through: 'ProductCategory' });
-    };
+
 
     return Product;
 };

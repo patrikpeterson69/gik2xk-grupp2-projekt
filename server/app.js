@@ -8,8 +8,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/posts', require('./routes/postsRoute'));
+// Rätt route-filer används
+app.use('/cart', require('./routes/cartRoutes'));
 app.use('/users', require('./routes/usersRoute'));
-app.use('/tags', require('./routes/tagsRoute'));
+app.use('/productRoutes', require('./routes/productRoutes'));
+app.use('/ratings', require('./routes/ratingsRoutes'));
 
 module.exports = app;
