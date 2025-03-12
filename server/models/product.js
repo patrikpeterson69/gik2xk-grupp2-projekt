@@ -1,10 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
     const Product = sequelize.define('Product', {
-        name: { type: DataTypes.STRING, allowNull: false },
-        description: { type: DataTypes.TEXT },
-        price: { type: DataTypes.DECIMAL, allowNull: false },
-        stock: { type: DataTypes.INTEGER, defaultValue: 0 },
-        imageUrl: { type: DataTypes.STRING }
+        id: {type: DataTypes.INTEGER, primaryKey: true},
+        description: { type: DataTypes.VARCHAR },
+        price: { type: DataTypes.DOUBLE, allowNull: false },
+        created_at: {type: DataTypes.DATETIME},
+        updated_at: {type: DataTypes.DATETIME},
+        imageUrl: { type: DataTypes.VARCHAR}
     });
 
     Product.associate = (models) => {

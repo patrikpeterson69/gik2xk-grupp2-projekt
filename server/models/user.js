@@ -1,37 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define(
-    'user',
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-      },
-      email: {
-        type: DataTypes.STRING(200),
-        allowNull: false,
-        validate: {
-          len: [4, 200],
-          isEmail: true
-        }
-      },
-      username: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
-        validate: {
-          len: [3, 50]
-        }
-      },
-      firstName: DataTypes.STRING(50),
-      lastName: DataTypes.STRING(50),
-      description: DataTypes.TEXT,
-      imageUrl: {
-        type: DataTypes.STRING(255),
-        validate: {
-          isUrl: true
-        }
-      }
+  const User = sequelize.define('user', {
+      id: {type: DataTypes.INTEGER,primaryKey: true, autoIncrement: true},
+      email: {type: DataTypes.VARCHAR(200),allowNull: false,validate: 
+      {
+        len: [4, 200],
+        isEmail: true
+      }},
+      first_Name: {type: DataTypes.VARCHAR},
+      last_Name: {type: DataTypes.VARCHAR},
+      created_At: {type: DataTypes.DATETIME},
+      updated_At: {type: DataTypes.DATETIME},
+      password: {type: DataTypes.VARCHAR}
     },
-    { underscored: true }
   );
+  return User;
 };
